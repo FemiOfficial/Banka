@@ -1,4 +1,6 @@
 import Users from '../utils/users.data';
+import CreateToken from '../helpers/createToken';
+import config from '../config/config';
 
 /**
  *
@@ -33,6 +35,8 @@ class UserService {
         password: user.password,
       };
 
+      const authToken = await CreateToken.token(authUser, config.secretKey);
+
 
       const response = {
         data: {
@@ -41,6 +45,7 @@ class UserService {
           lastName: user.lastName,
           email: user.email,
           password: user.password,
+          token: authToken,
         },
       };
 
@@ -86,3 +91,4 @@ class UserService {
 }
 
 export default UserService;
+1
