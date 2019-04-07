@@ -1,0 +1,655 @@
+body{
+    background: #e3d6d6;
+    background-size: cover;
+    font-family: 'Montserrat', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+.login-body{
+    background: #400A38;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+}
+.bank-statement{
+    background: #f4f4f4;
+}
+.create-acct-body {
+    background: #e3d6d6;
+}
+.index-banner{
+    background: url('../img/bg.jpg');
+    background-size: cover;
+    height: 600px;
+
+}
+.container-landing-body{
+    margin: 30px 70px 70px 70px;
+    grid-column-gap: 25px;
+}
+.profile-summary, .staff-profile-summary{
+    padding: 30px;
+}
+.summary-item {
+    width: 74%;
+    border-radius: 3px;
+    grid-column-gap: 0px;
+    /* text-align: center; */
+    margin: 20px;
+    padding: 10px;
+    background: #f4f4f4;
+    box-shadow: 5px 1px 10px #888888;
+}
+.summary-info h3, .summary-info h5, .summary-info h6 {
+    margin: 0px;
+    padding: 0px;
+    text-align: left;
+    text-transform: uppercase;
+    font-weight: 100;
+    color: #400A38;
+    font-size: 25px;
+}
+.summary-info h5,.summary-info h6 {
+    font-size: 20px;
+    font-weight: 900;
+}
+.summary-info h6 {
+    font-size: 14px;
+    font-weight: 900;
+}
+
+.container-landing-body, .profile-summary, .search-account{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+}
+
+.admin-menu {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-column-gap: 0px;
+    margin-bottom: 30px;
+}
+
+.admin-menu div {
+    cursor: pointer;
+    padding: 10px;  
+}
+.admin-menu div:hover{
+    background: #f4f4f4;
+}
+
+.admin-menu div:first-child {
+    border-right:2px solid #400A38;
+}
+
+.admin-menu div.active h1 {
+    color: #400A38;
+
+}
+.admin-menu div h1 {
+    margin: 0px 0px 0px 0px;
+    padding: 0px;
+    font-size: 24px;
+    color: #888888;
+}
+#admin-user-management {
+    display: none;
+}
+.staff-profile-summary {
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+.search-account{
+    grid-template-columns: auto;
+    padding: 0px 30px;
+}
+.search-account input[type=text]{
+    background: none;
+    text-align: center;
+    font-size: 30px;
+    border-bottom: 1px solid #400A38;
+}
+.body-item {
+    border-radius: 3px;
+    text-align: center;
+    height: 200px;
+    margin: 10px;
+    padding: 20px;
+    box-shadow: 5px 1px 20px #888888;
+}
+
+.body-item h2 {
+    font-weight: 100;
+}
+a.navbar-brand{
+    color:#9d0e3d;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.dashboard-nav{
+    padding-top: 10px;
+}
+.dashboard-nav ul li a:hover, .dashboard-nav ul li a:focus{
+    text-decoration: none;
+}
+.dashboard-nav img{
+    width: 24px;
+    height: 21px;
+    margin: 0px;
+
+}
+.create-bank-acct, .update-profile, .account-action, .transaction-btn{
+    color: #f4f4f4;
+    background:#DC493A;
+    padding: 10px;
+    text-decoration: none;
+    font-size: 13px;
+    border: none;
+    font-weight: 100;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+.account-action:hover {
+    text-decoration: none;
+}
+.transaction-btn {
+    font-size: 23px;
+}
+.credit-action{
+    background:#400A38;
+    color: #f4f4f4;
+}
+.update-profile {
+    float: right;
+}
+.update-profile:focus, .update-profile:hover, .transaction-btn:focus, .transaction-btn:hover{
+    transition: 0.3s ease-in-out;
+    background: #9d0e3d;
+
+}
+
+.banner-info{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-column-gap: 50px;
+    padding: 50px;
+    padding-top: 0px;
+}
+.banner-info .intro-1 {
+    padding-top: 130px;
+}
+
+.banner-info .intro-1 h1 {
+    color: #FFDE5E;
+    font-weight: 1000;
+    font-size: 55px;
+    margin: 0px;
+    padding: 0px;
+    margin-bottom: 20px
+}
+.banner-info .intro-2 h6{
+    color: #f4f4f4;
+    font-size: 29px;
+    margin: 0px;
+    font-weight: 100;
+    padding: 0px;
+    margin-bottom: 30px
+
+}
+.banner-info h4 {
+    color: #DC493A;
+    margin: 0px;
+    padding: 0px;
+    margin-bottom: 0px
+
+}
+.banner-img img{
+    margin-top: 20px;
+    max-height:500px;
+
+}
+.banner-button button, .profile-img a, .logout-actions a, .banner-button a{
+    background: #EF2C26;
+    color: #f4f4f4;
+    padding: 10px;
+    font-family: 'Montserrat', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border: none;
+    margin-right: 10px;
+    font-size: 18px;
+    font-weight: 400;
+    border-radius: 5px;
+    text-decoration: none;
+}
+.profile-img a {
+    padding: 4px;
+    margin-top: 2em;
+    text-decoration: none;
+    font-size: 14px;
+    border: 1px solid #333;
+}
+.profile-details a:hover, .profile-details a:focus, .logout-actions a {
+    text-decoration: none;
+}
+.banner-button .white-btn, .profile-img a, .logout-actions a  {
+    background: #f4f4f4;
+    color: #333;
+}
+.logout-actions a {
+    border: 1px solid #400A38;
+}
+.logout-actions a.logout {
+    background: #EF2C26;
+    color: #f4f4f4;
+}
+.more-info {
+    background: #f4f4f4;
+    min-height: 500px;
+    text-align: center;
+    padding: 40px;
+}
+.more-info-body, .summary-item{
+    display: grid;
+    grid-template-columns: auto auto;
+}
+.more-info-body{
+    margin: 50px;
+    grid-column-gap: 40px;
+}
+
+.more-info-body img {
+    max-width: 400px;
+    max-height: 400px;
+
+}
+.instructions-div {
+    text-align: left;
+}
+.more-info-instrutions {
+    border-radius: 3px;
+    padding: 20px;
+    width: 75%;
+    margin: 0px 0px 30px;
+    box-shadow: 2px 1px 5px #888888;
+
+}
+
+input[type=text], input[type=email], input[type=password], input[type=number],select, textarea{
+
+    border-bottom: 1px solid #e3d6d6;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-radius: 0px;
+    width: 94%;
+    padding: 15px;
+    font-size: 15px;
+    margin-bottom: 18px;
+}
+input[type=text]:focus, input[type=email]:focus, input[type=password]:focus,  input[type=number]:focus,select:focus{
+    box-shadow: none;
+    outline: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    transition: 0.3s ease-in-out;
+    border-bottom: 2px solid #400A38;
+}
+
+
+#btn-registerDisplay{
+    color: #1f3796;
+    cursor: pointer;
+}
+#btn-registerDisplay:hover {
+    text-decoration: underline;
+    
+}
+
+.register-link{
+    font-size: 16px;
+}
+
+.btn-login{
+    width: 100%;
+    padding: 20px;
+    background: none;
+    font-size: 17px;
+    color: #400A38 ;
+    font-weight: 600;
+    padding: 15px;
+    border: 2px solid #400A38 ;
+    border-radius: 0px;
+    
+}
+.btn-login:hover{
+    background: #400A38 ;
+    color: #ffffff;
+    border: 2px solid #400A38 ;
+    transition: 0.6s ease-out;
+    line-height: unset;
+    
+}
+
+button.google-login{
+    background: #961919;
+    text-align:center;
+    color: #fff;
+    border: none;
+    text-decoration: none;
+    width: 100%;
+    padding: 15px;
+}
+
+.login-div, .register-div{
+    width: 400px;
+    top: 50%;
+}
+.create-acct-div {
+    width: 450px;
+    top: 50%;
+    box-shadow: 2px 1px 5px #888888; 
+}
+.create-acct-div h1 {
+    margin: 0;
+}
+.create-acct-div h4 {
+    margin: 0px;
+}
+.create-acct-div label {
+    text-align: left;
+}
+
+
+.login-div, .register-div, .create-acct-div  {
+    text-align: center;
+    background: white;  
+    padding:30px;  
+    position: fixed;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.login-div h2, .register-div h2, .checkout-div h2, .create-acct-div  { 
+    margin-top: 0px;
+}   
+
+.login-div img, .register-div img , .create-acct-div img{ 
+    justify-content: center
+}
+.alternative-login{
+    text-align: center; 
+}
+
+.transaction-history, .bank-accounts{
+    margin: 30px;
+    text-align: center;
+}
+.transaction-history h1, .bank-accounts h1, #features h1, .admin-menu h1 {
+    font-weight: 900;
+    text-align: center;
+}
+.user-manage-nav a{
+    text-decoration: underline;
+    margin: 20px;
+    text-transform: uppercase;
+}
+.admin-section h3 {
+    background: #400A38;
+    color:#f4f4f4;
+    padding: 10px;
+}
+.bank-accounts h1 {
+    margin-top: 0px;
+}
+.transaction-history div, .bank-accounts div {
+    overflow-x:auto;
+    box-shadow: 2px 1px 5px #888888;
+    margin: 0px;
+    color: #400A38;
+    background: #f4f4f4;
+    padding: 10px;
+}
+.transaction-history table, .bank-accounts table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+}
+.transaction-history th, td {
+    text-align: left;
+    padding: 12px 8px;
+  }
+  .bank-accounts th, td {
+    text-align: left;
+    padding: 12px 8px;
+
+  }
+  
+.transaction-history tr:nth-child(even), .bank-accounts tr:nth-child(even) {background-color: #ebd7d7}
+
+.form-group-create-acct input, select {   
+    margin:10px;
+}
+
+/* Modals */
+.logout {
+    max-width: 500px;
+}
+.logout-actions, .form-group-create-acct{
+    display:         flex;
+    -webkit-flex-direction: row;
+       -moz-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+}
+.logout-actions a{
+    margin: 30px;
+    text-decoration: none;
+}
+
+.modal-container {
+    position: fixed;
+    background-color: #fff;
+    left: 50%;
+    top: 10%;
+    width: 100%;
+    padding: 20px;
+    display: -webkit-flex;
+    display:    -moz-flex;
+    display:     -ms-flex;
+    display:         flex;
+    -webkit-flex-direction: row;
+       -moz-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    border-radius: 5px 0px 0px 5px;
+
+    border-right: 10px solid #ff654d ;
+    max-width: 800px;
+    -webkit-transform: translate(-50%, -200%);
+    -ms-transform: translate(-50%, -200%);
+    transform: translate(-50%, -200%);  
+    transition: transform 200ms ease-out;
+    -webkit-transition: transform 200ms ease-out;
+    -ms-transition: transform 200ms ease-out;
+
+}
+
+.modal::before {
+    content: "";
+    position: fixed;
+    display: none;
+    background-color: rgba(0, 0, 0, .8);
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.modal:target::before{
+    display: block;
+}
+.profile-details, .acct_statement{
+    width: 75%;
+    margin: 20px;
+}
+.acct_statement{
+    width: 95%;
+    margin: 10px;
+}
+.transaction-details {
+    width: 100%;
+    margin: 0px 40px;
+}
+.profile-details label{
+    font-weight: 800;
+    color: #400A38;
+    margin-bottom: 20px;
+}
+.profile-details a {
+    float: right;
+}
+
+.modal:target .modal-container {
+    -webkit-transform: translate(-50%, 0%);
+    -ms-transform: translate(-50%, 0%);
+    transform: translate(-50%, 0%);    
+}
+
+.footer {
+    text-align: center;
+    background: #333;
+    color: #f4f4f4;
+    padding: 40px;
+}
+
+
+
+ .navbar {
+    font-size: 18px;
+    background: #f4f4f4;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 10px;
+    position: absolute;
+    width: 100%;
+  }
+  
+  .main-nav {
+    list-style-type: none;
+    display: none;
+  }
+  
+  .nav-links,
+  .logo {
+    text-decoration: none;
+    color: #400A38;
+  }
+  .logo {
+      font-weight: 900;
+  }
+  
+  .main-nav li {
+    text-align: center;
+    margin: 15px auto;
+  }
+  
+  .logo {
+    display: inline-block;
+    font-size: 22px;
+    margin-top: 10px;
+    margin-left: 20px;
+  }
+  
+  .navbar-toggle {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 24px;
+  }
+  .navbar-toggle img {
+      width: 20px;
+      height: 20px;
+  }
+  
+  .active {
+    display: block;
+  }
+
+  .navbar ul li a:hover, .navbar ul li a:focus{
+    text-decoration: underline;
+} 
+  
+  @media screen and (min-width: 768px) {
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 0;
+      height: 70px;
+      align-items: center;
+    }
+
+  
+    .main-nav {
+      display: flex;
+      margin-right: 30px;
+      flex-direction: row;
+      justify-content: flex-end;
+    }
+  
+    .main-nav li {
+      margin: 0;
+    }
+  
+    .nav-links {
+      margin-left: 40px;
+    }
+  
+    .logo {
+      margin-top: 0;
+    }
+  
+    .navbar-toggle {
+      display: none;
+    }
+
+  }
+  
+#modal-close{
+   width:0px;
+   height: 0px;
+    
+}
+
+
+
+
+
+/* Responsive */
+
+@media (max-width: 768px) {
+    .banner-info, .container-landing-body, .more-info-body, .profile-summary, .staff-profile-summary{
+      grid-template-columns: 1fr;
+
+    }
+    .login-div, .register-div, .create-acct-div {
+        width: 300px;
+    }
+    .banner-info .intro-1 {
+        padding-top: 40px;
+    }
+    .summary-info h3, .summary-info h5, .summary-info h6 {
+        margin: 0px;
+        padding: 0px;
+        text-align: left;
+        text-transform: uppercase;
+        font-weight: 100;
+        color: #400A38;
+        font-size: 19px;
+    }
+  
+  }
