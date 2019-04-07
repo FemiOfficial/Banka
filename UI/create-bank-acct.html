@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Banka Application</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
+</head>
+<body class="login-body create-acct-body">
+    <div class="container">
+            <nav class="navbar">
+                <span class="navbar-toggle" id="navbar-toggle">
+                                <img src="img/menu_nav.png" alt="">
+                </span>
+                <a href="index.html" class="logo">Banka App</a>
+                <ul class="main-nav" id="menu">
+                        <li><a class="nav-links" href="user_dashboard.html">Back to Profile</a></li>
+                </ul>
+            </nav>
+                    <!-- Login Component -->
+        <div class="create-acct-div" id="login-div" >
+                    <h1>Creat Bank Account</h1>
+
+                    <h4>Personal Info</h4>
+                    <div class="form-group-create-acct">
+
+                            <select name="title" class="form-control" >
+                                    <option value="">--Select Title--</option>
+                                    <option value="Mr">Mr</option>
+                                    <option value="Mrs">Mrs</option>
+                                    <option value="Miss">Miss</option>
+                                    <option value="Dr.">Dr.</option>
+                                    <option value="Professor">Professor</option>
+                                    <option value="Professor">Pastor</option>
+
+                             </select>
+
+                        </div>
+                        <div class="form-group-create-acct">
+                                <input type="text" class="form-control" placeholder="Firstname" />
+
+
+                                <input type="text" class="form-control" placeholder="Lastname" />
+    
+                        </div>
+                        <div class="form-group-create-acct">
+
+                                <input type="text" class="form-control" placeholder="Address Line 1" />
+
+                                <input type="text" class="form-control" placeholder="Address Line 2" />
+    
+    
+                        </div>
+                        
+                        <div class="form-group-create-acct">
+
+                                <select name="state-of-origin" class="form-control" >
+                                        <option value="">--State of Origin--</option>
+                                        <option value="Abia">Abia</option>
+                                        <option value="Adamawa">Adamawa</option>
+                                        <option value="Akwa-Ibom">Akwa Ibom</option>
+                                        <option value="Bauchi">Bauchi</option>
+                                        <option value="Bayelsa">Bayelsa</option>
+                                        <option value="Benue">Benue</option>
+                                        <option value="Borno">Borno</option>
+                                        <option value="Cross-River">Cross River</option>
+                                        <option value="Delta">Delta</option>
+                                        <option value="Ebonyi">Ebonyi</option>
+                                        <option value="Enugu">Enugu</option>
+                                        <option value="Edo">Edo</option>
+                                        <option value="Ekiti">Ekiti</option>
+                                        <option value="Gombe">Gombe</option>
+                                        <option value="Imo">Imo</option>
+                                        <option value="Jigawa">Jigawa</option>
+                                        <option value="Kaduna">Kaduna</option>
+                                        <option value="Kano">Kano</option>
+                                        <option value="Kastina">Kastina</option>
+                                        <option value="Kebbi">Kebbi</option>
+                                        <option value="Kogi">Kogi</option>
+                                        <option value="Kwara">Kwara</option>
+                                        <option value="Lagos">Lagos</option>
+                                        <option value="Nasarawa">Nasarawa</option>
+                                        <option value="Niger">Niger</option>
+                                        <option>Ogun</option>
+                                        <option value="Ondo">Ondo</option>
+                                        <option value="Osun">Osun</option>
+                                        <option value="Oyo">Oyo</option>
+                                        <option value="Plateau">Plateau</option>
+                                        <option value="Rivers">Rivers</option>
+                                        <option value="Sokoto">Sokoto</option>
+                                        <option value="Taraba">Taraba</option>
+                                        <option value="Yobe">Yobe</option>
+                                        <option value="Zamfara">Zamfara</option>
+                                        <option value="FCT">FCT(Abuja)</option>
+    
+                                 </select>
+
+                                <select name="state-of-origin" class="form-control" >
+                                        <option value="">--Sex--</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                 </select>
+    
+                        </div>                        
+                        <div class="form-group-create-acct">
+
+                                  <select name="state-of-origin" class="form-control" required>
+                                        <option value="">--Document--</option>
+                                        <option value="School-ID">School ID</option>
+                                        <option value="National-ID">National ID</option>
+                                        <option value="Passport">International Passport</option>
+                                        <option value="Voter-card">Voter's Card</option>
+                                        <option value="Nepa-bills">PHCN Bills</option>
+    
+                                 </select>
+                
+                                 <input type="file" class="form-control"/>
+                
+                        </div>
+                        <div class="form-group-create-acct">
+                                <input type="text" class="form-control" placeholder="Phone Number"/>
+
+                                <div style="text-align: left;">
+                                        <label for="file">Passport Upload</label>
+                                        <input type="file" class="form-control"/>
+                                </div>
+    
+                        </div>
+                        <button onclick = "alert('Account Created Successfully, you will get a mail notification shortly!');window.open('user_dashboard.html', '_self')" class="btn-login">Submit</button>
+                </div>
+    <script src="js/main.js"></script>
+
+    </div>
+</body>
+</html>
