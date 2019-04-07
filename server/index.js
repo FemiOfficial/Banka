@@ -1,11 +1,17 @@
+/* eslint-disable no-console */
 import express from 'express';
+import bodyParser from 'body-parser';
+import UserRoute from './routes/user.routes';
 
 const app = express();
 
 
-app.get('/', (req, res) => {
-    res.send('App is running');
-});
+// Body parser middleware
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+// Routes
+app.use('/api/v1/auth', UserRoute);
 
 const PORT = process.env.PORT || 3000;
 
