@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Banka Application</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
+
+</head>
+<body>
+
+    <div class="container">
+
+            <nav class="navbar dashboard-nav">
+                    <span class="navbar-toggle" id="navbar-toggle">
+                            <img src="img/menu_nav.png" alt="">
+                         </span>
+                     <a href="index.html" class="logo">Banka App</a>
+
+                    <ul class="main-nav" id="menu">
+
+                        <li>
+                                <a href="#debit-acct" class="account-action">Debit Account</a>
+                        </li>
+                        <li>
+                                <a href="#credit-acct" class="account-action credit-action">Credit Account</a>
+                        </li>
+
+                        <li>
+                            <a title="View Profile" class="nav-links" href="#profile">
+                                 <img src="img/Customer_48px.png" alt="profile_avatar"/> <span>Hi, John Doe!</span>
+                            </a>
+                        </li>
+    
+
+                        <li>
+                            <a title="Log out" class="nav-links" href="#logout">
+                                <img src="img/Shutdown_48px.png" alt="logout">
+                            </a>
+                        </li>
+
+
+                    </ul>
+            </nav>
+
+
+
+
+        <div class="modal" id ="debit-acct">
+                <div class="modal-container">
+                    <div class="profile-details transaction-details">
+                        <h1>DEBIT ACCOUNT</h1>
+                        <a href="#modal-close">close</a>
+                        <div>
+                            <div class="form-group">
+                                    <input type="text" name = "acct_number" id="acct-number" class="form-control" placeholder="Account Number"/>
+                            </div>
+                            <div class="form-group">
+                                    <input type="text" name = "acct_name" id="acct-name" class="form-control" placeholder="Account Name"/>
+                            </div>
+                            <div class="form-group">
+                                    <input type="number" step="0.01" name = "transaction_amount" id = "amount" class="form-control" placeholder="Amount"/>
+                            </div>
+             
+                            <button class="update-profile" onclick="debitAccount();window.open('staff_dashboard.html', '_self');">Intiate Transaction</button>
+                        </div>
+
+
+                    </div>
+
+                </div>
+        </div>
+
+        <div class="modal" id ="credit-acct">
+                <div class="modal-container">
+                    <div class="profile-details transaction-details">
+                        <h1>CREDIT ACCOUNT</h1>
+                        <a href="#modal-close">close</a>
+                        <div>
+                            <div class="form-group">
+                                    <input type="text" name = "acct_number" id="acct-number" class="form-control" placeholder="Account Number"/>
+                            </div>
+                            <div class="form-group">
+                                    <input type="text" name = "acct_name" id="acct-name" class="form-control" placeholder="Account Name"/>
+                            </div>
+                            <div class="form-group">
+                                    <input type="number" step="0.01" name = "transaction_amount" id = "amount" class="form-control" placeholder="Amount"/>
+                            </div>
+             
+                            <button class="update-profile" onclick="creditAccount();window.open('staff_dashboard.html', '_self');">Intiate Transaction</button>
+                        </div>
+
+
+                    </div>
+
+                </div>
+        </div>
+
+        <div class="modal" id ="logout">
+                <div class="modal-container logout">
+                    <div class="profile-details">
+                        <div>
+
+                            <h1>
+                                    Are you really Signing Out ?
+                            </h1>
+
+                            <div class="logout-actions">
+                                <a class = "logout" href="index.html">Yes</a>
+
+                                <a href="#modal-close">No</a>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+        </div>
+
+        <div class="modal" id ="delete_acct">
+                <div class="modal-container logout">
+                    <div class="profile-details">
+                        <div>
+
+                            <h1>
+                                    Do you really want to deactivate this account ?
+                            </h1>
+
+                            <div class="logout-actions">
+                                <a class = "logout" href="staff_dashboard.html">Yes</a>
+
+                                <a href="#modal-close">No</a>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+        </div>
+        <script src="js/main.js"></script>
+    </div>
+
+    <div class="footer">
+            created by Femi Alayesanmi
+    </div>
+
+</body>
+</html>
