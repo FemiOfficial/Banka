@@ -533,6 +533,8 @@ button.google-login{
     background: #f4f4f4;
     border: 1px solid rgba(0, 0, 0, 0.2);
     padding-bottom: 10px;
+    position: absolute;
+    width: 100%;
   }
   
   .main-nav {
@@ -590,6 +592,7 @@ button.google-login{
       height: 70px;
       align-items: center;
     }
+
   
     .main-nav {
       display: flex;
@@ -632,6 +635,9 @@ button.google-login{
     .banner-info, .container-landing-body, .more-info-body, .profile-summary, .staff-profile-summary{
       grid-template-columns: 1fr;
 
+    }
+    .login-div, .register-div, .create-acct-div {
+        width: 300px;
     }
     .banner-info .intro-1 {
         padding-top: 40px;
