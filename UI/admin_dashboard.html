@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Banka Application</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
+</head>
+<body>
+
+    <div class="container">
+
+            <nav class="navbar dashboard-nav">
+                    <span class="navbar-toggle" id="navbar-toggle">
+                           <img src="img/menu_nav.png" alt="">
+                        </span>
+                    <a href="index.html" class="logo">Banka App</a>
+                    <ul class="main-nav" id="menu">
+                            <li>
+                                    <a href="#add-admin" class=" account-action credit-action ">Add Admin/Staff</a>
+                            </li>
+    
+                            <li>
+                                <a title="View Profile" class="nav-links" href="#profile">
+                                     <img src="img/Customer_48px.png" alt="profile_avatar"/> <span>Hi, John Doe!</span>
+                                </a>
+                            </li>
+        
+    
+                            <li>
+                                <a title="Log out" class="nav-links"  href="#logout">
+                                    <img src="img/Shutdown_48px.png" alt="logout">
+                                </a>
+                            </li>
+    
+                    </ul>
+            </nav>
+            
+            <div class="staff-profile-summary">
+
+                <div class="summary-item">
+                        <img src="img/cash-in-hand.png" alt="">
+                        <div class="summary-info">
+                            <h3>All Transactions</h3>
+                            <h5>&#x20A6;2,000,000.43</h5>
+                            <h6>Number: 155</h6>
+                        </div>
+                </div>
+                <div class="summary-item">
+                        <img src="img/deposit_96px.png" alt="">
+                        <div class="summary-info">
+                            <h3>Credit Transactions</h3>
+                            <h5>&#x20A6;1,000,000.43</h5>
+                            <h6>Number: 155</h6>
+                        </div>
+                </div>
+                <div class="summary-item">
+                        <img src="img/withdrawal_96px.png" alt="">
+                        <div class="summary-info">
+                            <h3>Debit Transactions</h3>
+                            <h5>21020120122</h5>
+                            <h6>Number: 155</h6>
+                        </div>
+                </div>
+
+                <div class="summary-item">
+                    <img src="img/Admin_96px.png" alt="">
+                    <div class="summary-info">
+                        <h3>Admin Users</h3>
+                        <h5>Total: 4</h5>
+                    </div>
+            </div>
+            <div class="summary-item">
+                    <img src="img/Manager_96px.png" alt="">
+                    <div class="summary-info">
+                        <h3>Staff Users</h3>
+                        <h5>Total: 30</h5>
+                    </div>
+            </div>
+            <div class="summary-item">
+                    <img src="img/User_96px.png" alt="">
+                    <div class="summary-info">
+                        <h3>Customers</h3>
+                        <h5>Total: 1857</h5>
+                    </div>
+            </div>
+
+            </div>
+
+            <div class="admin-body">
+
+                    <div class="admin-menu">
+                        <div class="active" id="bank-acct">
+                            
+                            <h1>Bank Records</h1>
+
+                        </div>
+                        <div id="user-manage">
+
+                            <h1>Users</h1>
+
+                        </div>
+
+
+                    </div>
+
+                    <div id="admin-bank-records">
+                
+
+                
+        
+
+                    </div>
+
+                    <div id="admin-user-management">
+                        
+
+                        
+
+                            <div class="search-account">
+
+                                    <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Search by Email" />
+                                    </div>
+                
+                            </div>
+                
+                            <div class="transaction-history bank-accounts">
+                
+                                <div class="user-manage-nav">
+                                    <a href="#admin">Admin</a>
+                                    <a href="#staff">Staff</a>
+                                    <a href="#customer">Customers</a>
+                                    
+                                </div>
+                
+                                <div class="admin-section" id="admin">
+                                    <h3>Admin Users</h3>
+                                        <table>
+                                                <tr>
+                                                  <th>Firstname</th>
+                                                  <th>Lastname</th>
+                                                  <th>Email</th>
+                                                  <th>Phone Number</th>
+                                                  <th>Position</th>
+                                                  <th>Activate/Deactivate</th>
+                                                </tr>
+                                                <tr>
+                                                  <td>Alayesanmi</td>                                  
+                                                  <td>Femi</td>
+                                                  <td>example@email.com</td>
+                                                  <td>09089674563</td>
+                                                  <td>General Manager</td>
+                                                  <td>
+                                                        <a href="#delete_acct" class="account-action">Deactivate</a>
+                                                  </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Alayesanmi</td>                                  
+                                                    <td>Femi</td>
+                                                    <td>example@email.com</td>
+                                                    <td>09089674563</td>
+                                                    <td>General Manager</td>
+                                                    <td>
+                                                            <a href="#activate_acct" class="account-action credit-action">Activate</a>
+                                                    </td>
+                                                </tr> 
+                                        </table>
+                                </div>
+                                <div class="admin-section" id="staff">
+                                        <h3>Staff</h3>
+                                            <table>
+                                                    <tr>
+                                                      <th>Firstname</th>
+                                                      <th>Lastname</th>
+                                                      <th>Email</th>
+                                                      <th>Phone Number</th>
+                                                      <th>Position</th>
+                                                      <th>Activate/Deactivate</th>
+                                                    </tr>
+                                                    <tr>
+                                                      <td>Alayesanmi</td>                                  
+                                                      <td>Femi</td>
+                                                      <td>example@email.com</td>
+                                                      <td>09089674563</td>
+                                                      <td>General Manager</td>
+                                                      <td>
+                                                            <a href="#activate_acct" class="account-action credit-action">Activate</a>
+                                                    </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Alayesanmi</td>                                  
+                                                        <td>Femi</td>
+                                                        <td>example@email.com</td>
+                                                        <td>09089674563</td>
+                                                        <td>General Manager</td>
+                                                        <td>
+                                                                <a href="#activate_acct" class="account-action credit-action">Activate</a>
+                                                        </td>
+                                                    </tr> 
+                                            </table>
+                                    </div>
+                                    <div class="admin-section" id="customer">
+                                            <h3>Customers</h3>
+                                                <table>
+                                                        <tr>
+                                                          <th>Firstname</th>
+                                                          <th>Lastname</th>
+                                                          <th>Email</th>
+                                                          <th>Phone Number</th>
+                                                          <th>Position</th>
+                                                          <th>Activate/Deactivate</th>
+                                                        </tr>
+                                                        <tr>
+                                                          <td>Alayesanmi</td>                                  
+                                                          <td>Femi</td>
+                                                          <td>example@email.com</td>
+                                                          <td>09089674563</td>
+                                                          <td>General Manager</td>
+                                                          <td>
+                                                                <a href="#delete_acct" class="account-action">Deactivate</a>
+                                                          </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Alayesanmi</td>                                  
+                                                            <td>Femi</td>
+                                                            <td>example@email.com</td>
+                                                            <td>09089674563</td>
+                                                            <td>General Manager</td>
+                                                            <td>
+                                                                    <a href="#delete_acct" class="account-action">Deactivate</a>
+                                                            </td>
+                                                        </tr> 
+                                                </table>
+                                        </div>
+        
+    
+                            </div>
+                
+        
+
+
+                    </div>
+        
+
+            </div>
+
+            <div class="modal" id ="profile">
+                    <div class="modal-container">
+                        <div class="profile-img">                                  
+                            <img src="img/user.png" alt="modal-image"><br> 
+                            <a href="reset-password.html">Reset Password</a>
+                        </div>
+                        <div class="profile-details">
+                            <a href="#modal-close">close</a>
+                            <div>
+                                <div class="form-group">
+                                        <label for="firstname">Firstname</label>
+                                        <input type="text" name = "firstname" class="form-control" placeholder="Firstname" value="John"/>
+                                </div>
+                                <div class="form-group">
+                                        <label for="lastname">Lastname</label>
+                                        <input type="text" name = "lastname" class="form-control" placeholder="Lastname" value="Doe"/>
+                                </div>
+                                <div class="form-group">
+                                        <label for="email">Email</label>
+                                        <input type="email" name = "email" class="form-control" placeholder="example@email.com" value="johndoe@email.com"/>
+                                </div>
+                                <div class="form-group">
+                                        <label for="Account_name">Bank Account Name</label>
+                                        <input type="text" name = "Account_name" class="form-control" placeholder="Bank Account Name" value="John Doe Femi" readonly/>
+                                </div>
+                                <div class="form-group">
+                                        <label for="Account_no">Account Number</label>
+                                        <input type="text" name = "Account_no" class="form-control" placeholder="Bank Account Number" value="21020120122" readonly/>
+                                </div>
+    
+                                <button class="update-profile" onclick="alert('Profile Updated Successfully');window.open('staff_dashboard.html', '_self');">Update Profile</button>
+                            </div>
+    
+    
+                        </div>
+    
+                    </div>
+            </div>
+
+        <div class="modal" id ="logout">
+                <div class="modal-container logout">
+                    <div class="profile-details">
+                        <div>
+
+                            <h1>
+                                    Are you really Signing Out ?
+                            </h1>
+
+                            <div class="logout-actions">
+                                <a class = "logout" href="index.html">Yes</a>
+
+                                <a href="#modal-close">No</a>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+        </div>
+
+        <div class="modal" id ="delete_acct">
+                <div class="modal-container logout">
+                    <div class="profile-details">
+                        <div>
+
+                            <h1>
+                                    Do you really want to deactivate this account ?
+                            </h1>
+
+                            <div class="logout-actions">
+                                <a class = "logout" href="admin_dashboard.html">Yes</a>
+
+                                <a href="#modal-close">No</a>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+        </div>
+
+        <div class="modal" id ="activate_acct">
+                <div class="modal-container logout">
+                    <div class="profile-details">
+                        <div>
+
+                            <h1>
+                                    Do you really want to activate this account ?
+                            </h1>
+
+                            <div class="logout-actions">
+                                <a class = "logout" href="admin_dashboard.html">Yes</a>
+
+                                <a href="#modal-close">No</a>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+        </div>
+
+    </div>
+    <script src="js/main.js"></script>
+
+    <div class="footer">
+            created by Femi Alayesanmi
+    </div>
+
+
+</body>
+</html>
