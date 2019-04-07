@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Banka Application</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
+</head>
+<body class="login-body">
+    <div class="container">
+            <nav class="navbar">
+                    <span class="navbar-toggle" id="navbar-toggle">
+                           <img src="img/menu_nav.png" alt="">
+                        </span>
+                    <a href="index.html" class="logo">Banka App</a>
+                    <ul class="main-nav" id="menu">
+                        <li><a href="login.html" class="nav-links">Login</a></li>
+                        <li><a  href="admin_login.html" class="nav-links">Admin Login</a></li>
+                        <li><a  href="staff_login.html" class="nav-links">Staffs Login</a></li>
+                    </ul>
+            </nav>
+        
+        <!-- Login Component -->
+        <div class="col-md-6 card card-body login-div" id="login-div" >
+                    <h1>Banka</h1>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Firstname" />
+                        </div>
+                        <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Lastname" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Email" />
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" placeholder="Password"/>
+                        </div>
+                        <div class="form-group">
+                                <input type="password" class="form-control" placeholder="Confirm Password"/>
+                        </div>
+                        <button onclick = "window.open('login.html', '_self')" class="btn-login">Register</button>
+                </div>
+    <script src="js/main.js"></script>
+
+    </div>
+</body>
+</html>
