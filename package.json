@@ -1,0 +1,27 @@
+{
+  "name": "banka",
+  "version": "1.0.0",
+  "description": "banka finance andela bootcamp",
+  "main": "./server/index.js",
+  "scripts": {
+    "start": "nodemon ./server/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FemiOfficial/Banka.git"
+  },
+  "keywords": [
+    "finance",
+    "banka"
+  ],
+  "author": "femiofficial",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/FemiOfficial/Banka/issues"
+  },
+  "homepage": "https://github.com/FemiOfficial/Banka#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
