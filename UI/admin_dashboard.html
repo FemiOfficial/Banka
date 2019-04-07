@@ -106,8 +106,105 @@
                     </div>
 
                     <div id="admin-bank-records">
-                
 
+
+                            <div class="search-account">
+
+                                    <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Search by Account Number" />
+                                    </div>
+                
+                            </div>
+                
+                            <div class="transaction-history bank-accounts">
+                
+                
+                                <div>
+                                        <table>
+                                                <tr>
+                                                  <th>Account Name</th>
+                                                  <th>Account Number</th>
+                                                  <th>Balance (&#x20A6;)</th>
+                                                  <th>Date Created</th>
+                                                  <th>Date Last Credit</th>
+                                                  <th>Amount Last Credit (&#x20A6;) </th>
+                                                  <th>Date Last Debit</th>
+                                                  <th>Amount Last Debit (&#x20A6;) </th>
+                                                  <th>View Record</th>
+                                                </tr>
+                                                <tr>
+                                                  <td>Alayesanmi Femi</td>                                  
+                                                  <td>2323342111</td>
+                                                  <td>23,455.55</td>
+                                                  <td>23-12-1995</td>
+                                                  <td>23-12-2017</td>
+                                                  <td>20,000.00</td>
+                                                  <td>23-12-2019</td>
+                                                  <td>50,000.54</td>
+                                                  <td>
+                                                        <a href="bank_statement.html" class="account-action credit-action">View</a>
+                                                  </td>
+                                           
+                                                </tr>
+                                                <tr>
+                                                    <td>Alayesanmi Femi</td>                                  
+                                                    <td>2323342111</td>
+                                                    <td>23,455.55</td>
+                                                    <td>23-12-1995</td>
+                                                    <td>23-12-2017</td>
+                                                    <td>20,000.00</td>
+                                                    <td>23-12-2019</td>
+                                                    <td>50,000.54</td>
+                                                    <td>
+                                                            <a href="bank_statement.html" class="account-action credit-action">View</a>
+                                                      </td>
+                                         
+                                                </tr>
+                                                <tr>
+                                                    <td>Alayesanmi Femi</td>                                  
+                                                    <td>2323342111</td>
+                                                    <td>23,455.55</td>
+                                                    <td>23-12-1995</td>
+                                                    <td>23-12-2017</td>
+                                                    <td>20,000.00</td>
+                                                    <td>23-12-2019</td>
+                                                    <td>50,000.54</td>
+                                                    <td>
+                                                            <a href="bank_statement.html" class="account-action credit-action">View</a>
+                                                      </td>
+                                   
+                                                </tr> 
+                                                <tr>
+                                                    <td>Alayesanmi Femi</td>                                  
+                                                    <td>2323342111</td>
+                                                    <td>23,455.55</td>
+                                                    <td>23-12-1995</td>
+                                                    <td>23-12-2017</td>
+                                                    <td>20,000.00</td>
+                                                    <td>23-12-2019</td>
+                                                    <td>50,000.54</td>
+                                                    <td>
+                                                            <a href="bank_statement.html" class="account-action credit-action">View</a>
+                                                      </td>
+                                     
+                                                </tr> 
+                                                <tr>
+                                                    <td>Alayesanmi Femi</td>                                  
+                                                    <td>2323342111</td>
+                                                    <td>23,455.55</td>
+                                                    <td>23-12-1995</td>
+                                                    <td>23-12-2017</td>
+                                                    <td>20,000.00</td>
+                                                    <td>23-12-2019</td>
+                                                    <td>50,000.54</td>
+                                                    <td>
+                                                            <a href="bank_statement.html" class="account-action credit-action">View</a>
+                                                      </td>
+                                       
+                                                </tr> 
+                                              </table>
+                                </div>
+                            </div>
                 
         
 
@@ -285,6 +382,49 @@
                     </div>
             </div>
 
+
+
+
+        <div class="modal" id ="add-admin">
+                <div class="modal-container">
+                    <div class="profile-details transaction-details">
+                        <h1>Add User</h1>
+                        <a href="#modal-close">close</a>
+                        <div>
+                        <div class="form-group">
+
+                                <select name="title" class="form-control" >
+                                        <option value="">--As--</option>
+                                        <option value="Mr">Staff</option>
+                                        <option value="Mrs">Admin</option>
+                                    </select>
+    
+                            </div>
+                            <div class="form-group">
+                                    <input type="text" name = "email" id="email" class="form-control" placeholder="Email Address"/>
+                            </div>
+                            <div class="form-group">
+                                    <input type="text" name = "firstname" id="firstname" class="form-control" placeholder="Firstname"/>
+                            </div>
+                            <div class="form-group">
+                                    <input type="text" name = "lastname" id="lastname" class="form-control" placeholder="Lastname"/>
+                            </div>
+                            <div class="form-group">
+                                    <input type="text" name = "phone" id="phone" class="form-control" placeholder="Phone Number"/>
+                            </div>
+                            <div class="form-group">
+                                    <input type="text" name = "position" id="position" class="form-control" placeholder="Position"/>
+                            </div>
+
+                            <button class="update-profile" onclick="alert('User Added Successfully');window.open('admin_dashboard.html', '_self');">Add User</button>
+                        </div>
+
+
+                    </div>
+
+                </div>
+        </div>
+
         <div class="modal" id ="logout">
                 <div class="modal-container logout">
                     <div class="profile-details">
@@ -307,47 +447,6 @@
 
                 </div>
         </div>
-
-
-        <div class="modal" id ="add-admin">
-            <div class="modal-container">
-                <div class="profile-details transaction-details">
-                    <h1>Add User</h1>
-                    <a href="#modal-close">close</a>
-                    <div>
-                    <div class="form-group">
-
-                            <select name="title" class="form-control" >
-                                    <option value="">--As--</option>
-                                    <option value="Mr">Staff</option>
-                                    <option value="Mrs">Admin</option>
-                                </select>
-
-                        </div>
-                        <div class="form-group">
-                                <input type="text" name = "email" id="email" class="form-control" placeholder="Email Address"/>
-                        </div>
-                        <div class="form-group">
-                                <input type="text" name = "firstname" id="firstname" class="form-control" placeholder="Firstname"/>
-                        </div>
-                        <div class="form-group">
-                                <input type="text" name = "lastname" id="lastname" class="form-control" placeholder="Lastname"/>
-                        </div>
-                        <div class="form-group">
-                                <input type="text" name = "phone" id="phone" class="form-control" placeholder="Phone Number"/>
-                        </div>
-                        <div class="form-group">
-                                <input type="text" name = "position" id="position" class="form-control" placeholder="Position"/>
-                        </div>
-
-                        <button class="update-profile" onclick="alert('User Added Successfully');window.open('admin_dashboard.html', '_self');">Add User</button>
-                    </div>
-
-
-                </div>
-
-            </div>
-    </div>
 
         <div class="modal" id ="delete_acct">
                 <div class="modal-container logout">
