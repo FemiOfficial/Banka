@@ -31,14 +31,12 @@ class UserService {
       const authToken = await this.generateSignUpToken(user);
 
       const response = {
-        data: {
-          id: user.id,
-          firstName: user.firstName,
-          lastName: user.lastName,
-          email: user.email,
-          password: user.password,
-          token: authToken,
-        },
+        token: authToken,
+        id: user.id,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        email: user.email,
+        password: user.password,
       };
 
       return response;
@@ -64,13 +62,11 @@ class UserService {
       if (loginUser) {
         const token = await this.generateSignInToken(loginUser);
         const response = {
-          data: {
-            id: loginUser.id,
-            firstName: loginUser.firstName,
-            lastName: loginUser.lastName,
-            email: loginUser.email,
-            token,
-          },
+          token,
+          id: loginUser.id,
+          firstName: loginUser.firstName,
+          lastName: loginUser.lastName,
+          email: loginUser.email,
         };
         return response;
       }
