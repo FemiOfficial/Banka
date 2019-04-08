@@ -43,10 +43,9 @@ class UserControllers {
     * @returns {Object} loginUser
     */
   static async loginUser(req, res) {
-    const { user } = req.body;
 
     try {
-      const loginUser = await UserService.loginUser(user);
+      const loginUser = await UserService.login(req.body);
       if (!loginUser) {
         return res.status(statusCodes.unAuthorized).json(
           {

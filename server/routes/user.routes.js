@@ -6,4 +6,6 @@ const router = express.Router();
 
 router.post('/signup', UserValidations.checkCreateAccountBody, UsersControllers.createUser);
 
+router.post('/signin', UserValidations.checkLoginBody, UsersControllers.loginUser);
+
 export default router;
