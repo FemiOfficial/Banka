@@ -16,19 +16,14 @@ class UsersValidations {
     * @returns {JSON}
     *
     */
-  static async checkEmailAddress(email) {
-    const reg = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return reg.test(email);
-  }
-
   static async checkCreateAccountBody(req, res, next) {
     const data = req.body;
     const errors = [];
 
-    const firstName = data.firstName.trim('');
-    const lastName = data.lastName.trim('');
-    const email = data.email.trim('');
-    const password = data.password.trim('');
+    const firstName = data.firstName ? data.firstName.trim('') : false;
+    const lastName = data.lastName ? data.lastName.trim('') : false;
+    const email = data.email ? data.email.trim('') : false;
+    const password = data.password ? data.password.trim('') : false;
 
     if (!firstName || firstName.length === 0) {
       errors.push('firstname is required');

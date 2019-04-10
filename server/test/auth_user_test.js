@@ -19,6 +19,17 @@ describe('test for sign up endpoint', () => {
       lastName: 'james',
       email: 'email@gmail.com',
     },
+    userEmail400: {
+      firstName: 'femi',
+      lastName: 'james',
+      email: 'emailgmail.com',
+    },
+    userTrimInput400: {
+      firstName: '     ',
+      lastName: '     ',
+      email: 'email@gmail.com',
+      password: '      ',
+    },
 
   };
   describe('POST /auth/signup Success', () => {
@@ -35,8 +46,8 @@ describe('test for sign up endpoint', () => {
     });
   });
 
-  describe('POST /auth/signup Bad Request', () => {
-    it('should create a single user', (done) => {
+  describe('POST /auth/signup Bad Request Incomplete Payload', () => {
+    it('should not create a user', (done) => {
       chai.request(app)
         .post('/api/v1/auth/signup')
         .send(userData.user400)
@@ -49,4 +60,31 @@ describe('test for sign up endpoint', () => {
     });
   });
 
+  describe('POST /auth/signup Bad Request Invalid Email', () => {
+    it('should not create a user', (done) => {
+      chai.request(app)
+        .post('/api/v1/auth/signup')
+        .send(userData.userEmail400)
+        .end((err, res) => {
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('errors');
+          expect(res).to.have.status(400);
+          done();
+        });
+    });
+  });
+
+  describe('POST /auth/signup Bad Request Invalid Input', () => {
+    it('should create a single user', (done) => {
+      chai.request(app)
+        .post('/api/v1/auth/signup')
+        .send(userData.userTrimInput400)
+        .end((err, res) => {
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('errors');
+          expect(res).to.have.status(400);
+          done();
+        });
+    });
+  });
 });
