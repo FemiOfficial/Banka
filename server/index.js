@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 // Routes
 app.use('/api/v1/auth', UserRoute);
 
-const PORT = process.env.PORT || 3000;
+const { PORT } = process.env;
 
 app.listen(PORT, () => console.log(`App is running from PORT ${PORT}`));
 
