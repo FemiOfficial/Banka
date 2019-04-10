@@ -1,4 +1,4 @@
-import UserService from '../services/user.services';
+import UserService from '../services/user.auth.services';
 import statusCodes from '../helpers/statusCodes';
 
 /**
@@ -18,11 +18,11 @@ class UserControllers {
     */
   static async createUser(req, res) {
     try {
-      const CreatedUser = await UserService.createUser(req.body);
+      const data = await UserService.createUser(req.body);
       return res.status(statusCodes.created).json(
         {
           status: statusCodes.created,
-          CreatedUser,
+          data,
         },
       );
     } catch (error) {
@@ -43,11 +43,9 @@ class UserControllers {
     * @returns {Object} loginUser
     */
   static async loginUser(req, res) {
-    const { user } = req.body;
-
     try {
-      const loginUser = await UserService.loginUser(user);
-      if (!loginUser) {
+      const data = await UserService.login(req.body);
+      if (!data) {
         return res.status(statusCodes.unAuthorized).json(
           {
             status: statusCodes.unAuthorized,
@@ -58,7 +56,7 @@ class UserControllers {
       return res.status(statusCodes.success).json(
         {
           status: statusCodes.success,
-          loginUser,
+          data,
         },
       );
     } catch (error) {

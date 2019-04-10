@@ -28,25 +28,15 @@ class UserService {
 
       Users.push(user);
 
-      const authUser = {
+      const authToken = await this.generateSignUpToken(user);
+
+      const response = {
+        token: authToken,
+        id: user.id,
         firstName: user.firstName,
         lastName: user.lastName,
         email: user.email,
         password: user.password,
-      };
-
-      const authToken = await CreateToken.token(authUser, config.secretKey);
-
-
-      const response = {
-        data: {
-          id: user.id,
-          firstName: user.firstName,
-          lastName: user.lastName,
-          email: user.email,
-          password: user.password,
-          token: authToken,
-        },
       };
 
       return response;
@@ -70,13 +60,13 @@ class UserService {
         .find(user => user.email === login.email && user.password === login.password);
 
       if (loginUser) {
+        const token = await this.generateSignInToken(loginUser);
         const response = {
-          data: {
-            id: loginUser.id,
-            firstName: loginUser.firstName,
-            lastName: loginUser.lastName,
-            email: loginUser.email,
-          },
+          token,
+          id: loginUser.id,
+          firstName: loginUser.firstName,
+          lastName: loginUser.lastName,
+          email: loginUser.email,
         };
         return response;
       }
@@ -88,7 +78,42 @@ class UserService {
       throw err;
     }
   }
+
+  /**
+   *
+    * @static
+    * @memberof UserService
+    * @returns {Object} authToken
+    *
+    */
+  static async generateSignUpToken(user) {
+    const authUser = {
+      firstName: user.firstName,
+      lastName: user.lastName,
+      email: user.email,
+      password: user.password,
+    };
+
+    const token = await CreateToken.token(authUser, config.secretKey);
+    return token;
+  }
+
+  /**
+   *
+    * @static
+    * @memberof UserService
+    * @returns {Object} authToken
+    *
+    */
+  static async generateSignInToken(user) {
+    const authUser = {
+      email: user.email,
+      password: user.password,
+    };
+
+    const authToken = await CreateToken.token(authUser, config.secretKey);
+    return authToken;
+  }
 }
 
 export default UserService;
-1
