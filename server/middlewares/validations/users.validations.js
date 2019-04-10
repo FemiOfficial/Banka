@@ -16,24 +16,43 @@ class UsersValidations {
     * @returns {JSON}
     *
     */
+  static async checkEmailAddress(email) {
+    const reg = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return reg.test(email);
+  }
 
   static async checkCreateAccountBody(req, res, next) {
     const data = req.body;
     const errors = [];
-    if (!data.firstName) {
+
+    const firstName = data.firstName ? data.firstName.trim('') : false;
+    const lastName = data.lastName ? data.lastName.trim('') : false;
+    const email = data.email ? data.email.trim('') : false;
+    const password = data.password ? data.password.trim('') : false;
+
+    if (!firstName || firstName.length === 0) {
       errors.push('firstname is required');
     }
-    if (!data.lastName) {
+    if (!lastName || lastName.length === 0) {
       errors.push('lastname is required');
     }
-    if (!data.email) {
+    if (!email || email.length === 0) {
       errors.push('email is required');
     }
-    if (!data.password) {
+
+    if (email) {
+      const reg = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const isValid = reg.test(data.email);
+      if (!isValid) {
+        errors.push('Invalid email address');
+      }
+    }
+
+    if (!password || password.length === 0) {
       errors.push('password is required');
     }
-    if (data.password) {
-      if (!(data.password.length >= 6 && data.password.length <= 15)) {
+    if (password) {
+      if (!(password.length >= 6 && password.length <= 15)) {
         errors.push('password must be at least 6 and 15 character');
       }
     }

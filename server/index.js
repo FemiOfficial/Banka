@@ -1,7 +1,9 @@
 /* eslint-disable no-console */
 import express from 'express';
 import bodyParser from 'body-parser';
-import UserRoute from './routes/user.routes';
+import UserRoute from './routes/user.auh.routes';
+
+require('dotenv').config();
 
 const app = express();
 

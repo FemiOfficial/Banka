@@ -1,4 +1,4 @@
-import UserService from '../services/user.services';
+import UserService from '../services/user.auth.services';
 import statusCodes from '../helpers/statusCodes';
 
 /**

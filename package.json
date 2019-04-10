@@ -27,6 +27,7 @@
     "@babel/preset-env": "^7.4.3",
     "babel-cli": "^6.26.0",
     "body-parser": "^1.18.3",
+    "dotenv": "^7.0.0",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.16.0",
