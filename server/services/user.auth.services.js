@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import Users from '../utils/users.data';
 import CreateToken from '../helpers/createToken';
 import config from '../config/config';
@@ -23,8 +24,11 @@ class UserService {
 
       const lastId = Users[userLength - 1].id;
 
-      // eslint-disable-next-line no-param-reassign
       user.id = lastId + 1;
+
+      user.isAdmin = false;
+
+      user.type = 'Client';
 
       Users.push(user);
 
