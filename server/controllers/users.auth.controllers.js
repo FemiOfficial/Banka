@@ -43,7 +43,6 @@ class UserControllers {
     * @returns {Object} loginUser
     */
   static async loginUser(req, res) {
-
     try {
       const data = await UserService.login(req.body);
       if (!data) {
