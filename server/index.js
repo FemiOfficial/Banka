@@ -18,3 +18,5 @@ app.use('/api/v1/auth', UserRoute);
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => console.log(`App is running from PORT ${PORT}`));
+
+export default app;
