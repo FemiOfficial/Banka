@@ -70,11 +70,13 @@ class UsersValidations {
 
   static async checkLoginBody(req, res, next) {
     const data = req.body;
+    const email = data.email ? data.email.trim('') : false;
+    const password = data.password ? data.password.trim('') : false;
     const errors = [];
-    if (!data.email) {
+    if (!email || email.length === 0) {
       errors.push('email is required');
     }
-    if (!data.password) {
+    if (!password || password.length === 0) {
       errors.push('password is required');
     }
     if (errors.length >= 1) {
