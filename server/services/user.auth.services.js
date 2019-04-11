@@ -5,15 +5,15 @@ import config from '../config/config';
 
 /**
  *
- * @class UserService
+ * @class AuthService
  *
  */
 
-class UserService {
+class AuthService {
   /**
    *
     * @static
-    * @memberof UserService
+    * @memberof AuthService
     * @returns {Object} response
     *
     */
@@ -54,7 +54,7 @@ class UserService {
   /**
    *
     * @static
-    * @memberof UserService
+    * @memberof AuthService
     * @returns {Object} loginUser
     *
     */
@@ -86,7 +86,7 @@ class UserService {
   /**
    *
     * @static
-    * @memberof UserService
+    * @memberof AuthService
     * @returns {Object} authToken
     *
     */
@@ -105,7 +105,7 @@ class UserService {
   /**
    *
     * @static
-    * @memberof UserService
+    * @memberof AuthService
     * @returns {Object} authToken
     *
     */
@@ -120,4 +120,4 @@ class UserService {
   }
 }
 
-export default UserService;
+export default AuthService;
