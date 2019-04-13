@@ -5,7 +5,7 @@ const trimInput = (req, res, next) => {
     req.body[index] = typeof req.body[index] === 'string'
       ? req.body[index].trim() : req.body[index];
   }
-  next();
+ return next();
 };
 
 export default trimInput;
