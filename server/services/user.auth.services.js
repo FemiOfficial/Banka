@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
 import Users from '../utils/users.data';
-import CreateToken from '../helpers/createToken';
+import TokenOperations from '../helpers/tokenOperations';
 import config from '../config/config';
 
 /**
@@ -98,7 +98,7 @@ class AuthService {
       password: user.password,
     };
 
-    const token = await CreateToken.token(authUser, config.secretKey);
+    const token = await TokenOperations.token(authUser, config.secretKey);
     return token;
   }
 
@@ -115,7 +115,7 @@ class AuthService {
       password: user.password,
     };
 
-    const authToken = await CreateToken.token(authUser, config.secretKey);
+    const authToken = await TokenOperations.token(authUser, config.secretKey);
     return authToken;
   }
 }
