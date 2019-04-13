@@ -2,6 +2,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import UserRoute from './routes/user.auth.routes';
+import AccountRoute from './routes/accounts.route';
 
 require('dotenv').config();
 
@@ -14,6 +15,7 @@ app.use(bodyParser.json());
 
 // Routes
 app.use('/api/v1/auth', UserRoute);
+app.use('/api/v1/', AccountRoute);
 
 const { PORT } = process.env;
 

@@ -16,7 +16,7 @@ class c {
     *
     */
 
-  static async checkCreateAccountBody(req, res, next) {
+  static async checkCreateBankAccountBody(req, res, next) {
     const data = req.body;
     const errors = [];
 
