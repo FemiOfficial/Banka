@@ -19,7 +19,7 @@ class AccountService {
     */
   static async getAccount(id) {
     try {
-      const accountExist = await Accounts.find(account => account.owner === id) ? true : false;
+      const accountExist = !!await Accounts.find(account => account.owner === id);
       return accountExist;
     } catch (e) {
       const err = { error: 'An error while trying get account' };
@@ -72,6 +72,23 @@ class AccountService {
       throw err;
     }
   }
+
+  /**
+   *
+    * @static
+    * @memberof AccountService
+    * @returns {Object} reqAccount
+    *
+    */
+  static async patchAccount(account, id) {
+    const reqAccount = Accounts.find(acc => acc.accountNumber === parseInt(id, 10));
+    if (!reqAccount) {
+      return false;
+    }
+    reqAccount.status = account.status;
+    return reqAccount;
+  }
+
 }
 
 export default AccountService;
