@@ -20,6 +20,11 @@ class AuthService {
 
   static async createUser(user) {
     try {
+      const checkEmail = Users.find(data => data.email === user.email);
+
+      if (checkEmail) {
+        return false;
+      }
       const userLength = Users.length;
 
       const lastId = Users[userLength - 1].id;
@@ -62,7 +67,6 @@ class AuthService {
     try {
       const loginUser = Users
         .find(user => user.email === login.email && user.password === login.password);
-
       if (loginUser) {
         const token = await this.generateSignInToken(loginUser);
         const response = {
@@ -113,6 +117,10 @@ class AuthService {
     const authUser = {
       email: user.email,
       password: user.password,
+      id: user.id,
+      type: user.type,
+      isAdmin: user.isAdmin,
+
     };
 
     const authToken = await TokenOperations.token(authUser, config.secretKey);

@@ -22,7 +22,7 @@ class TokenOperations {
 
   static async verify(token) {
     try {
-      return jwt.verify(token, config.secretKey);
+      return jwt.decode(token, config.secretKey);
     } catch (e) {
       return null;
     }

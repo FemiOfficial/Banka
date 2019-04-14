@@ -1,4 +1,5 @@
 import UserServices from './user.services';
+import Users from '../utils/users.data';
 import Accounts from '../utils/accounts.data';
 import generateBAN from '../utils/generateBAN';
 import getdate from '../utils/dateFormat';
@@ -17,20 +18,20 @@ class AccountService {
     *
     */
 
-  static async createAccount(id, accountDetails) {
+  static async createAccount(accountDetails) {
     try {
-      const loggedInUser = await UserServices.getUser(id);
+      const loggedInUser = await UserServices.getUser(accountDetails.email);
       if (!loggedInUser) {
         return false;
       }
       const accountNumber = await generateBAN(8);
 
       const newAccount = {
-        owner: id,
+        owner: loggedInUser.id,
         createdOn: await getdate(),
         type: accountDetails.type,
         status: 'Active',
-        balance: accountDetails.openingBalance,
+        balance: accountDetails.balance,
         accountNumber,
       };
 

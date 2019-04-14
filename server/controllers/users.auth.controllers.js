@@ -19,6 +19,14 @@ class UserControllers {
   static async createUser(req, res) {
     try {
       const data = await AuthService.createUser(req.body);
+      if (!data) {
+        return res.status(statusCodes.conflict).json(
+          {
+            status: statusCodes.conflict,
+            errors: 'email already registered',
+          },
+        );
+      }
       return res.status(statusCodes.created).json(
         {
           status: statusCodes.created,

@@ -27,8 +27,8 @@ class UserService {
     *
     */
 
-  static async getUser(id) {
-    const reqUser = Users.find(user => user.id === parseInt(id, 10));
+  static async getUser(email) {
+    const reqUser = Users.find(user => user.email === email);
     if (!reqUser) {
       return false;
     }

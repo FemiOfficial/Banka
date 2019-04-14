@@ -1,4 +1,5 @@
 import AccountService from '../services/account.services';
+import Authentication from '../middlewares/authentication';
 import statusCodes from '../helpers/statusCodes';
 
 /**
@@ -18,7 +19,13 @@ class AccountControllers {
     */
   static async createAccount(req, res) {
     try {
-      const data = await AccountService.createAccount(req.decodedToken.id, req.body);
+      const data = await AccountService.createAccount(req.body);
+      if (!data) {
+        return res.status(statusCodes.badRequest).json({
+          status: statusCodes.badRequest,
+          errors: 'please enter a registered email',
+        });
+      }
       return res.status(statusCodes.created).json(
         {
           status: statusCodes.created,
@@ -33,7 +40,6 @@ class AccountControllers {
       );
     }
   }
-
 }
 
 export default AccountControllers;
