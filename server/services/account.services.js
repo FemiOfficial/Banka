@@ -77,13 +77,13 @@ class AccountService {
    *
     * @static
     * @memberof AccountService
-    * @returns {Object} createdAccount
+    * @returns {Object} reqAccount
     *
     */
   static async patchAccount(account) {
-    const reqAccount = Accounts.find(acc => parseInt(acc.accountNumber, 10) === parseInt(account, 10));
+    const reqAccount = Accounts.find(acc => acc.accountNumber === parseInt(account, 10));
     reqAccount.status = account.status;
-    return reqAcccount;
+    return reqAccount;
   }
 
 }

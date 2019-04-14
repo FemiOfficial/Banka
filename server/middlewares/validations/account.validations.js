@@ -2,16 +2,60 @@
 import StatusCodes from '../../helpers/statusCodes';
 /**
  *
- * @class CreateAccountValdation
+ * @class AccountValdation
  * @description Handles all validations on the request body
  *
  */
 
-class CreateAccountValdation {
+class AccountValdation {
   /**
    *
     * @static
-    * @memberof CreateAccountValdation
+    * @memberof AccountValdation
+    * @returns {JSON}
+    *
+    */
+  static async checkPatchAccountBody(req, res, next) {
+    const data = req.body;
+    const errors = [];
+    if (!data.accountNumber) {
+      return res.status(StatusCodes.badRequest).json({
+        status: StatusCodes.badRequest,
+        errors: 'account number  type is required',
+      });
+    }
+    if (!data.status) {
+      return res.status(StatusCodes.badRequest).json({
+        status: StatusCodes.badRequest,
+        errors: 'status is required',
+      });
+    }
+
+    const accountNumber = parseInt(data.accountNumber, 10);
+    const account = accountNumber || false;
+
+    const status = data.status.trim() == 'active' || data.status.trim() === 'dormant' ? data.status.trim() : false;
+
+    if (!account) {
+      errors.push('invalid account number, expecting a number');
+    }
+
+    if (!status) {
+      errors.push(`invalid status expecting ${'active'} or ${'dormat'}`);
+    }
+
+    if (errors.length >= 1) {
+      return res.status(StatusCodes.badRequest).json({
+        status: StatusCodes.badRequest,
+        errors,
+      });
+    }
+    return next();
+  }
+  /**
+   *
+    * @static
+    * @memberof AccountValdation
     * @returns {JSON}
     *
     */
@@ -52,7 +96,7 @@ class CreateAccountValdation {
       errors.push(`account type should be ${'Savings'} or ${'Current'}`);
     }
     if (!balance) {
-      errors.push('invalid opening balance');
+      errors.push('invalid opening balance, expecting a number');
     }
     if (errors.length >= 1) {
       return res.status(StatusCodes.badRequest).json({
@@ -62,6 +106,7 @@ class CreateAccountValdation {
     }
     return next();
   }
+
 }
 
-export default CreateAccountValdation;
+export default AccountValdation;

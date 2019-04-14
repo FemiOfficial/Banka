@@ -40,6 +40,38 @@ class AccountControllers {
       );
     }
   }
+
+  /**
+   *
+    * @static
+    * @param {*} req
+    * @param {*} res
+    * @memberof AccountControllers
+    * @returns {Object} newStatus
+    */
+  static async patchAccount(req, res) {
+    try {
+      const data = await AccountService.patchAccount(req.body);
+      if (!data) {
+        return res.status(statusCodes.notFound).json({
+          status: statusCodes.notFound,
+          errors: 'account number not found',
+        });
+      }
+      return res.status(statusCodes.success).json(
+        {
+          status: statusCodes.success,
+          data,
+        },
+      );
+    } catch (error) {
+      return res.status(statusCodes.serverError).json(
+        {
+          error: 'Internal server error',
+        },
+      );
+    }
+  }
 }
 
 export default AccountControllers;
