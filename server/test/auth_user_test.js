@@ -6,11 +6,17 @@ import app from '../index';
 chai.use(chaiHttp);
 
 
-describe('test for sign up endpoint', () => {
+describe('test for authentication (sign up and sign in) endpoints', () => {
   const userData = {
     user: {
       firstName: 'test-firstname',
       lastName: 'test-lastname',
+      password: 'password1234',
+      email: 'email@gmail.com',
+    },
+    user_2: {
+      firstName: 'test-2-firstname',
+      lastName: 'test-2-lastname',
       password: 'password1234',
       email: 'email@gmail.com',
     },
@@ -56,6 +62,20 @@ describe('test for sign up endpoint', () => {
           expect(res.body).to.be.an('object');
           expect(res.body).to.have.property('data');
           expect(res).to.have.status(201);
+          done();
+        });
+    });
+  });
+
+  describe('POST /auth/signup Email Conflict', () => {
+    it('should not create a user', (done) => {
+      chai.request(app)
+        .post('/api/v1/auth/signup')
+        .send(userData.user_2)
+        .end((err, res) => {
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('errors');
+          expect(res).to.have.status(409);
           done();
         });
     });

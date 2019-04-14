@@ -1,4 +1,4 @@
-import UserService from '../services/user.auth.services';
+import AuthService from '../services/user.auth.services';
 import statusCodes from '../helpers/statusCodes';
 
 /**
@@ -18,7 +18,15 @@ class UserControllers {
     */
   static async createUser(req, res) {
     try {
-      const data = await UserService.createUser(req.body);
+      const data = await AuthService.createUser(req.body);
+      if (!data) {
+        return res.status(statusCodes.conflict).json(
+          {
+            status: statusCodes.conflict,
+            errors: 'email already registered',
+          },
+        );
+      }
       return res.status(statusCodes.created).json(
         {
           status: statusCodes.created,
@@ -44,7 +52,7 @@ class UserControllers {
     */
   static async loginUser(req, res) {
     try {
-      const data = await UserService.login(req.body);
+      const data = await AuthService.login(req.body);
       if (!data) {
         return res.status(statusCodes.unAuthorized).json(
           {

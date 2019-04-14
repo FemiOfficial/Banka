@@ -1,25 +1,30 @@
 /* eslint-disable no-param-reassign */
 import Users from '../utils/users.data';
-import CreateToken from '../helpers/createToken';
+import TokenOperations from '../helpers/tokenOperations';
 import config from '../config/config';
 
 /**
  *
- * @class UserService
+ * @class AuthService
  *
  */
 
-class UserService {
+class AuthService {
   /**
    *
     * @static
-    * @memberof UserService
+    * @memberof AuthService
     * @returns {Object} response
     *
     */
 
   static async createUser(user) {
     try {
+      const checkEmail = Users.find(data => data.email === user.email);
+
+      if (checkEmail) {
+        return false;
+      }
       const userLength = Users.length;
 
       const lastId = Users[userLength - 1].id;
@@ -54,7 +59,7 @@ class UserService {
   /**
    *
     * @static
-    * @memberof UserService
+    * @memberof AuthService
     * @returns {Object} loginUser
     *
     */
@@ -62,7 +67,6 @@ class UserService {
     try {
       const loginUser = Users
         .find(user => user.email === login.email && user.password === login.password);
-
       if (loginUser) {
         const token = await this.generateSignInToken(loginUser);
         const response = {
@@ -86,7 +90,7 @@ class UserService {
   /**
    *
     * @static
-    * @memberof UserService
+    * @memberof AuthService
     * @returns {Object} authToken
     *
     */
@@ -98,14 +102,14 @@ class UserService {
       password: user.password,
     };
 
-    const token = await CreateToken.token(authUser, config.secretKey);
+    const token = await TokenOperations.token(authUser, config.secretKey);
     return token;
   }
 
   /**
    *
     * @static
-    * @memberof UserService
+    * @memberof AuthService
     * @returns {Object} authToken
     *
     */
@@ -113,11 +117,15 @@ class UserService {
     const authUser = {
       email: user.email,
       password: user.password,
+      id: user.id,
+      type: user.type,
+      isAdmin: user.isAdmin,
+
     };
 
-    const authToken = await CreateToken.token(authUser, config.secretKey);
+    const authToken = await TokenOperations.token(authUser, config.secretKey);
     return authToken;
   }
 }
 
-export default UserService;
+export default AuthService;

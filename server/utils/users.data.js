@@ -4,7 +4,8 @@ export default [
     firstName: 'John',
     lastName: 'Doe',
     password: '12345',
-    type: 'client',
+    email: 'johndoe@gmail.com',
+    type: 'Client',
     isAdmin: false,
   },
   {
@@ -12,7 +13,8 @@ export default [
     firstName: '  Mack',
     lastName: 'Doe',
     password: '12345',
-    type: 'staff',
+    email: 'mackdoe@gmail.com',
+    type: 'Staff',
     isAdmin: true,
   },
   {
@@ -20,7 +22,8 @@ export default [
     firstName: 'Donald',
     lastName: 'Trump',
     password: '12345',
-    type: 'staff',
+    email: 'donaldtrump@gmail.com',
+    type: 'Staff',
     isAdmin: false,
   },
   {
@@ -28,7 +31,8 @@ export default [
     firstName: 'James',
     lastName: 'Doe',
     password: '12345',
-    type: 'client',
+    email: 'jamesdoe@gmail.com',
+    type: 'Client',
     isAdmin: false,
   },
 ];
