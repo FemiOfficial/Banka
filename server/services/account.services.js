@@ -97,11 +97,11 @@ class AccountService {
     *
     */
   static async deleteAccount(id) {
-    const reqAccountIndex = Accounts.findIndex(acc => parseInt(acc.accountNumber, 10) === parseInt(id, 10));
-    if (!reqAccountIndex) {
+    const reqAccount = Accounts.find(acc => parseInt(acc.accountNumber, 10) === parseInt(id, 10));
+    if (!reqAccount) {
       return false;
     }
-    Accounts.splice(reqAccountIndex, 1);
+    Accounts.splice(reqAccount.id - 1, 1);
     return Accounts;
   }
 

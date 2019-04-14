@@ -86,7 +86,7 @@ class AccountControllers {
     */
   static async deleteAccount(req, res) {
     try {
-      const deleteAccount = await AccountService.deleteAccount(req.body, req.params.accountNumber);
+      const deleteAccount = await AccountService.deleteAccount(req.params.accountNumber);
       if (!deleteAccount) {
         return res.status(statusCodes.notFound).json({
           status: statusCodes.notFound,

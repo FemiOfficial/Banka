@@ -13,4 +13,6 @@ router.post('/accounts', AccountValidation.checkCreateBankAccountBody, trimInput
 router.patch('/accounts/:accountNumber', AccountValidation.checkPatchAccountBody, trimInput, Authentication.verifyToken,
   AccountControllers.patchAccount);
 
+router.delete('/accounts/:accountNumber', Authentication.verifyToken, AccountControllers.deleteAccount);
+
 export default router;
