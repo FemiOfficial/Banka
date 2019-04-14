@@ -64,7 +64,7 @@ class AccountControllers {
           data: {
             status: patchAccount.status,
             accountNumber: patchAccount.accountNumber,
-          }
+          },
         },
       );
     } catch (error) {
@@ -74,6 +74,41 @@ class AccountControllers {
         },
       );
     }
+  }
+
+  /**
+   *
+    * @static
+    * @param {*} req
+    * @param {*} res
+    * @memberof AccountControllers
+    * @returns {Object} reponse
+    */
+  static async deleteAccount(req, res) {
+    try {
+      const deleteAccount = await AccountService.deleteAccount(req.params.accountNumber);
+      if (!deleteAccount) {
+        return res.status(statusCodes.notFound).json({
+          status: statusCodes.notFound,
+          errors: 'account not found',
+        });
+      }
+      return res.status(statusCodes.success).json(
+        {
+          status: statusCodes.success,
+          data: {
+            message: 'account successfully deleted',
+          },
+        },
+      );
+    } catch (e) {
+      return res.status(statusCodes.serverError).json(
+        {
+          error: 'Internal server error',
+        },
+      );
+    }
+
   }
 }
 
