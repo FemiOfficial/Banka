@@ -6,7 +6,7 @@ import app from '../index';
 chai.use(chaiHttp);
 
 
-describe('test for sign up endpoint', () => {
+describe('test for authentication (sign up and sign in) endpoints', () => {
   const userData = {
     user: {
       firstName: 'test-firstname',

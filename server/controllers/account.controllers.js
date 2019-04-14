@@ -21,9 +21,9 @@ class AccountControllers {
     try {
       const data = await AccountService.createAccount(req.body);
       if (!data) {
-        return res.status(statusCodes.badRequest).json({
-          status: statusCodes.badRequest,
-          errors: 'please enter a registered email',
+        return res.status(statusCodes.conflict).json({
+          status: statusCodes.conflict,
+          errors: 'please enter a valid email',
         });
       }
       return res.status(statusCodes.created).json(

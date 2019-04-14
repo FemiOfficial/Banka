@@ -19,27 +19,6 @@ const Authentication = {
     }
     return res.status(statusCodes.unAuthorized).json({ error: 'No token provided' });
   },
-  
-  isStaff(req, res, next) {
-    if (!req.user.type === 'Staff') {
-      return res.status(statusCodes.unAuthorized).json({ error: 'Only staffs can do this operation ' });
-    }
-    return next();
-  },
-
-  isAdmin(req, res, next) {
-    if (!req.user.isAdmin) {
-      return res.status(statusCodes.unAuthorized).json({ error: 'Only admin can do this operation ' });
-    }
-    return next();
-  },
-
-  isClient(req, res, next) {
-    if (req.user.type === 'Client') {
-      return res.status(statusCodes.unAuthorized).json({ error: 'Only clients can do this operation ' });
-    }
-    return next();
-  },
 };
 
 export default Authentication;

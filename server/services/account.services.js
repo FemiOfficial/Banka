@@ -14,6 +14,22 @@ class AccountService {
    *
     * @static
     * @memberof AccountService
+    * @returns {Boolean} accountExist
+    *
+    */
+  static async getAccount(id) {
+    try {
+      const accountExist = await Accounts.find(account => account.owner === id) ? true : false;
+      return accountExist;
+    } catch (e) {
+      const err = { error: 'An error while trying get account' };
+      throw err;
+    }
+  }
+  /**
+   *
+    * @static
+    * @memberof AccountService
     * @returns {Object} createdAccount
     *
     */
@@ -22,6 +38,10 @@ class AccountService {
     try {
       const loggedInUser = await UserServices.getUser(accountDetails.email);
       if (!loggedInUser) {
+        return false;
+      }
+      const accountExist = await this.getAccount(loggedInUser.id);
+      if (accountExist) {
         return false;
       }
       const accountNumber = await generateBAN(8);

@@ -17,7 +17,7 @@ class TokenOperations {
       user, secretKey,
       { expiresIn: '5d' },
     );
-    return authToken;
+    return `Bearer ${authToken}`;
   }
 
   static async verify(token) {
