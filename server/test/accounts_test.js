@@ -13,6 +13,21 @@ describe('test for create account endpoint', () => {
       email: 'jamesdoe@gmail.com',
       password: '12345',
     },
+    loginStaff: {
+      email: 'donaldtrump@gmail.com',
+      password: '12345',
+    },
+    accountPatch: {
+      status: 'active',
+    },
+    accountPatch400: {
+      status: 'act',
+    },
+    accountPatch400_2: {
+      status: '  ',
+    },
+    accountPatch400_3: {
+    },
     account: {
       type: 'Savings',
       balance: '120000.00',
@@ -130,5 +145,80 @@ describe('test for create account endpoint', () => {
         });
     });
   });
-  
+
+  describe('POST /auth/signin staff sign in', () => {
+    it('should log a staff in', (done) => {
+      chai.request(app)
+        .post('/api/v1/auth/signin')
+        .send(AccountData.loginStaff)
+        .end((err, res) => {
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('data');
+          expect(res).to.have.status(200);
+          token = res.body.data.token;
+          done();
+        });
+    });
+  });
+
+  describe('PATCH /accounts/<account-number> Bad Request wrong input but complete payload', () => {
+    it('should not create a bank account', (done) => {
+      chai.request(app)
+        .patch('/api/v1/accounts/23432344')
+        .send(AccountData.accountPatch400)
+        .set('Authorization', token)
+        .end((err, res) => {
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('errors');
+          expect(res).to.have.status(400);
+          done();
+        });
+    });
+  });
+
+  describe('PATCH /accounts/<account-number> Bad Request wrong input but complete payload', () => {
+    it('should not create a bank account', (done) => {
+      chai.request(app)
+        .patch('/api/v1/accounts/23432344')
+        .send(AccountData.accountPatch400_2)
+        .set('Authorization', token)
+        .end((err, res) => {
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('errors');
+          expect(res).to.have.status(400);
+          done();
+        });
+    });
+  });
+
+  describe('PATCH /accounts/<account-number> Bad Request wrong input but complete payload', () => {
+    it('should not create a bank account', (done) => {
+      chai.request(app)
+        .patch('/api/v1/accounts/23432344')
+        .send(AccountData.accountPatch400_3)
+        .set('Authorization', token)
+        .end((err, res) => {
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('errors');
+          expect(res).to.have.status(400);
+          done();
+        });
+    });
+  });
+
+  describe('PATCH /accounts/<account-number> Bad Request wrong input but complete payload', () => {
+    it('should not create a bank account', (done) => {
+      chai.request(app)
+        .patch('/api/v1/accounts/2343')
+        .send(AccountData.accountPatch)
+        .set('Authorization', token)
+        .end((err, res) => {
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('errors');
+          expect(res).to.have.status(404);
+          done();
+        });
+    });
+  });
+
 });

@@ -26,9 +26,9 @@ class AccountValdation {
     }
 
     const status = data.status.trim() == 'active' || data.status.trim() === 'dormant' ? data.status.trim() : false;
-    
+
     if (!status) {
-      errors.push(`invalid status expecting ${'active'} or ${'dormat'}`);
+      errors.push(`invalid status expecting ${'active'} or ${'dormant'}`);
     }
 
     if (errors.length >= 1) {

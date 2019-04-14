@@ -82,6 +82,9 @@ class AccountService {
     */
   static async patchAccount(account, id) {
     const reqAccount = Accounts.find(acc => acc.accountNumber === parseInt(id, 10));
+    if (!reqAccount) {
+      return false;
+    }
     reqAccount.status = account.status;
     return reqAccount;
   }
