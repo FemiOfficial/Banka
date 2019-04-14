@@ -5,7 +5,12 @@
   "main": "./server/index.js",
   "scripts": {
     "start": "nodemon --exec babel-node ./server/index.js",
-    "test": "nyc mocha ./server/test/*.js --timeout 100000 --require @babel/register --exit"
+    "test": "nyc mocha ./server/test/*.js --timeout 100000 --require @babel/register --exit",
+    "generate-lcov": "nyc report --reporter=text-lcov > lcov.info",
+    "coveralls-coverage": "coveralls < lcov.info",
+    "codeclimate-coverage": "codeclimate-test-reporter < lcov.info",
+    "coverage": "npm run test && npm run generate-lcov"
+
   },
   "repository": {
     "type": "git",
