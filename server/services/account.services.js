@@ -81,12 +81,28 @@ class AccountService {
     *
     */
   static async patchAccount(account, id) {
-    const reqAccount = Accounts.find(acc => acc.accountNumber === parseInt(id, 10));
+    const reqAccount = Accounts.find(acc => parseInt(acc.accountNumber, 10) === parseInt(id, 10));
     if (!reqAccount) {
       return false;
     }
     reqAccount.status = account.status;
     return reqAccount;
+  }
+
+  /**
+   *
+    * @static
+    * @memberof AccountService
+    * @returns {Object} Accounts
+    *
+    */
+  static async deleteAccount(id) {
+    const reqAccountIndex = Accounts.findIndex(acc => parseInt(acc.accountNumber, 10) === parseInt(id, 10));
+    if (!reqAccountIndex) {
+      return false;
+    }
+    Accounts.splice(reqAccountIndex, 1);
+    return Accounts;
   }
 
 }
