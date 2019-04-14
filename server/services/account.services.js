@@ -80,8 +80,8 @@ class AccountService {
     * @returns {Object} reqAccount
     *
     */
-  static async patchAccount(account) {
-    const reqAccount = Accounts.find(acc => acc.accountNumber === parseInt(account, 10));
+  static async patchAccount(account, id) {
+    const reqAccount = Accounts.find(acc => acc.accountNumber === parseInt(id, 10));
     reqAccount.status = account.status;
     return reqAccount;
   }

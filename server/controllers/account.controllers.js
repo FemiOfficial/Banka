@@ -51,17 +51,20 @@ class AccountControllers {
     */
   static async patchAccount(req, res) {
     try {
-      const data = await AccountService.patchAccount(req.body);
-      if (!data) {
+      const patchAccount = await AccountService.patchAccount(req.body, req.params.accountNumber);
+      if (!patchAccount) {
         return res.status(statusCodes.notFound).json({
           status: statusCodes.notFound,
-          errors: 'account number not found',
+          errors: 'account not found',
         });
       }
       return res.status(statusCodes.success).json(
         {
           status: statusCodes.success,
-          data,
+          data: {
+            status: patchAccount.status,
+            accountNumber: patchAccount.accountNumber,
+          }
         },
       );
     } catch (error) {

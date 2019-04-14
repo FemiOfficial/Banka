@@ -18,12 +18,6 @@ class AccountValdation {
   static async checkPatchAccountBody(req, res, next) {
     const data = req.body;
     const errors = [];
-    if (!data.accountNumber) {
-      return res.status(StatusCodes.badRequest).json({
-        status: StatusCodes.badRequest,
-        errors: 'account number  type is required',
-      });
-    }
     if (!data.status) {
       return res.status(StatusCodes.badRequest).json({
         status: StatusCodes.badRequest,
@@ -31,15 +25,8 @@ class AccountValdation {
       });
     }
 
-    const accountNumber = parseInt(data.accountNumber, 10);
-    const account = accountNumber || false;
-
     const status = data.status.trim() == 'active' || data.status.trim() === 'dormant' ? data.status.trim() : false;
-
-    if (!account) {
-      errors.push('invalid account number, expecting a number');
-    }
-
+    
     if (!status) {
       errors.push(`invalid status expecting ${'active'} or ${'dormat'}`);
     }
