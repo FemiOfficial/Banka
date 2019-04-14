@@ -4,6 +4,8 @@ node_js:
 before_install: cd server/
 install:
       - npm install
+script:
+      - npm run test
 cache:
   directories:
     - "node_modules"
