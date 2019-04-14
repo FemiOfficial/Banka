@@ -221,4 +221,60 @@ describe('test for create account endpoint', () => {
     });
   });
 
+  describe('PATCH /accounts/<account-number> update an account successfully', () => {
+    it('should create a bank account', (done) => {
+      chai.request(app)
+        .patch('/api/v1/accounts/23432344')
+        .send(AccountData.accountPatch)
+        .set('Authorization', token)
+        .end((err, res) => {
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('data');
+          expect(res).to.have.status(200);
+          done();
+        });
+    });
+  });
+
+  describe('DELETE /accounts/<account-number> not delete an account without token provided', () => {
+    it('should not delete a bank account', (done) => {
+      chai.request(app)
+        .delete('/api/v1/accounts/23432344')
+        .end((err, res) => {
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('error');
+          expect(res).to.have.status(401);
+          done();
+        });
+    });
+  });
+
+  describe('DELETE /accounts/<account-number> not delete an account with invalid account number', () => {
+    it('should not delete a bank account', (done) => {
+      chai.request(app)
+        .delete('/api/v1/accounts/2343')
+        .set('Authorization', token)
+        .end((err, res) => {
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('errors');
+          expect(res).to.have.status(404);
+          done();
+        });
+    });
+  });
+
+  describe('DELETE /accounts/<account-number> delete an account successfully', () => {
+    it('should not delete a bank account', (done) => {
+      chai.request(app)
+        .delete('/api/v1/accounts/23432344')
+        .set('Authorization', token)
+        .end((err, res) => {
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('data');
+          expect(res).to.have.status(200);
+          done();
+        });
+    });
+  });
+
 });
