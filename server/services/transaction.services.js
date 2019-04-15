@@ -21,11 +21,11 @@ class TransactionServices {
 
     const lastId = Transactions[transactionsLength - 1].id;
 
-    transaction.id = lastId + 1;
+    transaction.id = parseInt(lastId + 1, 10);
 
     transaction.type = 'debit';
 
-    transaction.accountNumber = id;
+    transaction.accountNumber = parseInt(id, 10);
 
     transaction.createdOn = await getdate();
 
@@ -35,19 +35,19 @@ class TransactionServices {
       return false;
     }
 
-    transaction.oldBalance = account.balance;
+    transaction.oldBalance = parseFloat(account.balance, 10);
 
     account.balance -= transaction.amount;
 
-    transaction.newBalance = account.balance;
+    transaction.newBalance = parseFloat(account.balance, 10);
 
     Transactions.push(transaction);
 
     return {
       transactionId: transaction.id,
       accountNumber: transaction.accountNumber,
-      amount: transaction.amount,
-      cashier: transaction.cashier,
+      amount: parseFloat(transaction.amount, 10),
+      cashier: parseInt(transaction.cashier, 10),
       transactionType: 'debit',
       accountBalance: transaction.newBalance,
     };
