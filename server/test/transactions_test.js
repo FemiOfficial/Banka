@@ -137,4 +137,97 @@ describe('test for transaction endpoints', () => {
         });
     });
   });
+
+
+
+
+
+  describe('POST /transactions/<:account-number>/credit Success', () => {
+    it('should not credit an account successfully', (done) => {
+      chai.request(app)
+        .post(`/api/v1/transactions/${TransactionData.accountNumber.acc}/credit`)
+        .send(TransactionData.transaction)
+        .set('Authorization', token)
+        .end((err, res) => {
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('errors');
+          expect(res).to.have.status(404);
+          done();
+        });
+    });
+  });
+
+  describe('POST /transactions/<:account-number>/credit Unauthorized Access', () => {
+    it('should credit an account successfully', (done) => {
+      chai.request(app)
+        .post('/api/v1/transactions/23432344/credit')
+        .send(TransactionData.transaction)
+        .end((err, res) => {
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('error');
+          expect(res).to.have.status(401);
+          done();
+        });
+    });
+  });
+
+  describe('POST /transactions/<:account-number>/credit Invalid Account Number', () => {
+    it('should not credit an account successfully', (done) => {
+      chai.request(app)
+        .post('/api/v1/transactions/23432/credit')
+        .send(TransactionData.transaction)
+        .set('Authorization', token)
+        .end((err, res) => {
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('errors');
+          expect(res).to.have.status(404);
+          done();
+        });
+    });
+  });
+
+  describe('POST /transactions/<:account-number>/credit Bad Request', () => {
+    it('should not credit an account successfully', (done) => {
+      chai.request(app)
+        .post('/api/v1/transactions/23432/credit')
+        .send(TransactionData.transaction400_1)
+        .set('Authorization', token)
+        .end((err, res) => {
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('errors');
+          expect(res).to.have.status(400);
+          done();
+        });
+    });
+  });
+
+  describe('POST /transactions/<:account-number>/credit Bad Request', () => {
+    it('should not credit an account successfully', (done) => {
+      chai.request(app)
+        .post('/api/v1/transactions/23432/credit')
+        .send(TransactionData.transaction400_3)
+        .set('Authorization', token)
+        .end((err, res) => {
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('errors');
+          expect(res).to.have.status(400);
+          done();
+        });
+    });
+  });
+
+  describe('POST /transactions/<:account-number>/credit Bad Request', () => {
+    it('should not credit an account successfully', (done) => {
+      chai.request(app)
+        .post('/api/v1/transactions/23432/credit')
+        .send(TransactionData.transaction400_2)
+        .set('Authorization', token)
+        .end((err, res) => {
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('errors');
+          expect(res).to.have.status(400);
+          done();
+        });
+    });
+  });
 });
