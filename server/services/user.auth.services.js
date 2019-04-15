@@ -1,5 +1,5 @@
 /* eslint-disable no-param-reassign */
-import Users from '../utils/users.data';
+import Users from '../utils/db/users.data';
 import TokenOperations from '../helpers/tokenOperations';
 import config from '../config/config';
 
