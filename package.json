@@ -2,7 +2,7 @@
   "name": "banka",
   "version": "1.0.0",
   "description": "banka finance andela bootcamp",
-  "main": "./server/index.js",
+  "main": "index.js",
   "scripts": {
     "dev": "nodemon --exec babel-node ./server/index.js",
     "start": "babel-node ./server/index.js",
