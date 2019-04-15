@@ -1,4 +1,5 @@
 import getdate from '../utils/dateFormat';
+import Accounts from '../utils/db/accounts.data';
 import Transactions from '../utils/db/transactions.data';
 
 /**
@@ -10,12 +11,12 @@ class TransactionServices {
   /**
    *
     * @static
-    * @memberof AccountService
-    * @returns {Boolean} accountExist
+    * @memberof TransactionServices
+    * @returns {Boolean} debitTransaction
     *
     */
 
-  static async makeTransaction(transaction) {
+  static async makeDebitTransaction(transaction) {
     const transactionsLength = Transactions.length;
 
     const lastId = Transactions[transactionsLength - 1].id;
@@ -23,6 +24,18 @@ class TransactionServices {
     transaction.id = lastId + 1;
 
     transaction.createdOn = await getdate();
+
+    const account = Accounts.find(acc => acc.accountNumber === transaction.accountNumber);
+
+    if (!account) {
+      return false;
+    }
+
+    transaction.oldBalance = account.balance;
+
+    account.balance  -= transaction.amount;
+
+    transaction.newBalance = account.balance;
 
     Transactions.push(transaction);
 
