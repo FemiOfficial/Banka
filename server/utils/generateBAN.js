@@ -1,5 +1,5 @@
 /* eslint-disable no-plusplus */
-import Accounts from './accounts.data';
+import Accounts from './db/accounts.data';
 
 const generateBAN = (length) => {
   let text = '';

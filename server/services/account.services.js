@@ -1,6 +1,6 @@
 import UserServices from './user.services';
-import Users from '../utils/users.data';
-import Accounts from '../utils/accounts.data';
+import Users from '../utils/db/users.data';
+import Accounts from '../utils/db/accounts.data';
 import generateBAN from '../utils/generateBAN';
 import getdate from '../utils/dateFormat';
 /**

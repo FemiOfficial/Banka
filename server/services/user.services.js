@@ -1,4 +1,4 @@
-import Users from '../utils/users.data';
+import Users from '../utils/db/users.data';
 
 /**
  *
