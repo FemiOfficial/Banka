@@ -29,7 +29,7 @@ class TransactionServices {
 
     transaction.createdOn = await getdate();
 
-    const account = Accounts.find(acc => parseInt(acc.accountNumber, 10) === parseInt(id, 10));
+    const account = Accounts.find(acc => acc.accountNumber === parseInt(id, 10));
 
     if (!account) {
       return false;
