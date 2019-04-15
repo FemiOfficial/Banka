@@ -31,6 +31,24 @@ body{
 }
 .profile-summary, .staff-profile-summary{
     padding: 30px;
+    
+}
+.breadcrumbs{
+    padding-top: 100px;
+}
+.breadcrumbs ul {
+    display: inline-block;
+}
+.breadcrumbs ul li {
+    list-style-type: none;
+    padding: 5px;
+    text-decoration: none;
+}
+.breadcrumbs ul li a{
+    text-decoration: none;
+}
+.breadcrumbs ul li a.active{
+    font-weight: 900;
 }
 .summary-item {
     width: 74%;
