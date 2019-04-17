@@ -1,4 +1,8 @@
 # Banka-app
+[![Build Status](https://travis-ci.org/FemiOfficial/Banka-app.svg?branch=develop)](https://travis-ci.org/FemiOfficial/Banka-app)
+
+[![Coverage Status](https://coveralls.io/repos/github/FemiOfficial/Banka-app/badge.svg?branch=develop)](https://coveralls.io/github/FemiOfficial/Banka-app?branch=develop)
+
 Banka is a light-weight core banking application that powers banking operations like account creation, customer deposit and withdrawals. This app is meant to support a single bank, where users can signup and create bank accounts online, but must visit the branch to withdraw or deposit money
 
 ### Frontend - https://femiofficial.github.io/Banka-app/UI
@@ -33,5 +37,13 @@ Banka is a light-weight core banking application that powers banking operations 
     - Delete a specific account.
   
 
-  
+## Features on the Api
+
+#### POST /auth/signup
+```
+Response Format
+```
+
+
+
 
