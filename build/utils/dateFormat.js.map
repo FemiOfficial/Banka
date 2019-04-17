@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../server/utils/dateFormat.js"],"names":["getDate","date","Date"],"mappings":";;;;;;;AAAA,IAAMA,OAAO,GAAG,SAAVA,OAAU,GAAM;AACpB,MAAMC,IAAI,GAAGC,IAAI,EAAjB;AACA,SAAOD,IAAP;AACD,CAHD;;eAKeD,O","sourcesContent":["const getDate = () => {\r\n  const date = Date();\r\n  return date;\r\n};\r\n\r\nexport default getDate;\r\n"],"file":"dateFormat.js"}

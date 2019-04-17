@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../server/config/config.js"],"names":["secretKey"],"mappings":";;;;;;eAAe;AACbA,EAAAA,SAAS,EAAE;AADE,C","sourcesContent":["export default {\r\n  secretKey: 'thisisthekeyforbanka',\r\n};\r\n"],"file":"config.js"}
