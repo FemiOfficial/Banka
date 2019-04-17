@@ -7,6 +7,8 @@ Banka is a light-weight core banking application that powers banking operations 
 
 ### Frontend - https://femiofficial.github.io/Banka-app/UI
 
+### Rest Api - https://banka-app-api.herokuapp.com/api/v1/
+
 ## Features of UI Templates
 
 - No authentication on any form in the ui template (Click submit button on every form to gain access to the dashboards)
@@ -37,13 +39,111 @@ Banka is a light-weight core banking application that powers banking operations 
     - Delete a specific account.
   
 
-## Features on the Api
+## Completed Endpoints on the Api
 
 #### POST /auth/signup
 ```
 Response Format
+
+{
+'status'​:​ ​Integer​ ,    ​ 
+'data'​: {
+  'token':​ '45erkjherht45495783'
+  'id'​:​ Integer​,// id of newly created user
+  'firstName'​: String,
+  'lastName':​ String​,
+  'email': String​,
+  }
+} 
+
+```
+#### POST /auth/signin
+```
+Response Format
+
+{
+'status'​:​ ​Integer​ ,    ​ 
+'data'​: {
+  'token':​ '45erkjherht45495783'
+  'id'​:​ Integer​,// id of newly created user
+  'firstName'​: String,
+  'lastName':​ String​,
+  'email': String​,
+  }
+} 
+
+```
+#### POST /accounts
+```
+Response Format
+
+{
+'status'​:​ ​Integer​ ,    ​ 
+'data'​: {
+  'accountNumber':​ Number
+  'firstName'​: String,
+  'lastName':​ String​,
+  'email': String​,
+  'type': String​,
+  'openingBalance': Float,
+
+
+  }
+} 
+
+```
+#### PATCH /accounts/<account-number>
+```
+Response Format
+{
+'status'​:​ ​Integer​ ,    ​ 
+'data'​: {
+  'accountNumber':​ Number
+  'status'​: String,
+  }
+} 
+
+```
+#### DELETE /accounts/<account-number>
+```
+Response Format
+
+{
+'status'​:​ ​Integer​ ,    ​ 
+'message': 'Account successfully deleted'
+} 
+
+```
+#### POST /transactions/<account-number>/debit
+```
+Response Format
+{
+'status'​:​ ​Integer​ ,    ​ 
+'data'​: {
+  'transactionId':​ Number
+  'accountNumber'​: String,
+  'amount'​: Float,
+  'cashier'​: Integer,
+  'transactionType'​: String,
+  'accountBalance'​: String,
+  }
+} 
+
 ```
 
+#### POST /transactions/<account-number>/credit
+```
+Response Format
+{
+'status'​:​ ​Integer​ ,    ​ 
+'data'​: {
+  'transactionId':​ Number
+  'accountNumber'​: String,
+  'amount'​: Float,
+  'cashier'​: Integer,
+  'transactionType'​: String,
+  'accountBalance'​: String,
+  }
+} 
 
-
-
+```
